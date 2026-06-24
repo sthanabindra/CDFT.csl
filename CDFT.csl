@@ -21,10 +21,7 @@
         <multiple>Eds.</multiple>
       </term>
       <term name="and">and</term>
-      <term name="et-al">
-        <single><text font-style="italic">et al.</text></single>
-        <multiple><text font-style="italic">et al.</text></multiple>
-      </term>
+      <term name="et-al">et al</term>
       <term name="accessed">Accessed</term>
       <term name="retrieved">Retrieved from</term>
       <term name="page" form="short">
