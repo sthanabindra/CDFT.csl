@@ -35,7 +35,7 @@
 
   <macro name="author-short">
     <names variable="author">
-      <name form="short" delimiter=", " and="text" delimiter-precedes-last="never" initialize-with=". "/>
+      <name form="short" et-al-font-style="italic" delimiter=", " and="text" delimiter-precedes-last="never" initialize-with=". "/>
       <substitute>
         <names variable="editor"/>
         <text variable="title" form="short"/>
