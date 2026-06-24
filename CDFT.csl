@@ -153,7 +153,7 @@
 
   <!-- ===================== BIBLIOGRAPHY ===================== -->
 
-  <bibliography hanging-indent="true" entry-spacing="1" line-spacing="1.5">
+  <bibliography hanging-indent="true" entry-spacing="1" line-spacing="1">
     <sort>
       <key macro="author-bib"/>
       <key variable="issued"/>
@@ -261,7 +261,7 @@
 
         <!-- PERSONAL COMMUNICATION -->
         <else-if type="personal_communication">
-          <text term="personal communication" text-case="capitalize-first"/>
+          <text value="personal communication" text-case="capitalize-first"/>
           <date variable="issued" prefix=". " form="text">
             <date-part name="day"/>
             <date-part name="month" form="long"/>
