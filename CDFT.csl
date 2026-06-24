@@ -35,7 +35,8 @@
 
   <macro name="author-short">
     <names variable="author">
-      <name form="short" et-al-font-style="italic" delimiter=", " and="text" delimiter-precedes-last="never" initialize-with=". "/>
+      <name form="short" delimiter=", " and="text" delimiter-precedes-last="never" initialize-with=". "/>
+      <et-al term="et-al" font-style="italic"/>
       <substitute>
         <names variable="editor"/>
         <text variable="title" form="short"/>
@@ -138,7 +139,7 @@
 
   <!-- ===================== CITATION (in-text) ===================== -->
 
-  <citation et-al-min="3" et-al-use-first="1" et-al-font-style="italic" disambiguate-add-year-suffix="true" collapse="year">
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" collapse="year">
     <sort>
       <key macro="author-short"/>
       <key variable="issued"/>
