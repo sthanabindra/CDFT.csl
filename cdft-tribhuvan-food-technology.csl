@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-US">
+  <info>
+    <title>CDFT - Tribhuvan University Central Department of Food Technology</title>
+    <id>http://www.zotero.org/styles/cdft-tribhuvan-food-technology</id>
+    <link href="http://www.zotero.org/styles/cdft-tribhuvan-food-technology" rel="self"/>
+    <author>
+      <name>Custom style built from CDFT Dissertation Writing Manual</name>
+    </author>
+    <category citation-format="author-date"/>
+    <category field="generic-base"/>
+    <summary>Reference style for B.Tech./M.Tech. (Food Technology) dissertations, Central Department of Food Technology, Tribhuvan University, Nepal.</summary>
+    <updated>2026-06-24T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <locale xml:lang="en">
+    <terms>
+      <term name="editor" form="short">
+        <single>Ed.</single>
+        <multiple>Eds.</multiple>
+      </term>
+      <term name="and">and</term>
+      <term name="et-al">et al.</term>
+      <term name="accessed">Accessed</term>
+      <term name="retrieved">Retrieved from</term>
+      <term name="page" form="short">
+        <single>p.</single>
+        <multiple>pp.</multiple>
+      </term>
+    </terms>
+  </locale>
+
+  <!-- ===================== MACROS ===================== -->
+
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" delimiter=", " and="text" delimiter-precedes-last="never" initialize-with=". "/>
+      <substitute>
+        <names variable="editor"/>
+        <text variable="title" form="short"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <macro name="author-bib">
+    <names variable="author">
+      <name name-as-sort-order="all" and="text" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always"/>
+      <label form="short" prefix=" (" suffix=".)" text-case="capitalize-first"/>
+      <substitute>
+        <names variable="editor">
+          <name name-as-sort-order="all" and="text" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always"/>
+          <label form="short" prefix=" (" suffix=".)"/>
+        </names>
+        <text macro="title-short-fallback"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <macro name="title-short-fallback">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="editor-only">
+    <names variable="editor">
+      <name name-as-sort-order="all" and="text" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always"/>
+      <label form="short" prefix=" (" suffix=".)"/>
+    </names>
+  </macro>
+
+  <macro name="year-date">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" prefix="(" suffix=")">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short" prefix="(" suffix=")"/>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="access-date">
+    <choose>
+      <if variable="URL">
+        <group prefix=" [" suffix="]" delimiter=" ">
+          <text term="accessed" text-case="capitalize-first"/>
+          <date variable="accessed" form="text">
+            <date-part name="day" suffix=" "/>
+            <date-part name="month" form="long" suffix=" "/>
+            <date-part name="year"/>
+          </date>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="url-block">
+    <choose>
+      <if variable="URL">
+        <group delimiter=" " prefix=". ">
+          <text term="retrieved" text-case="capitalize-first"/>
+          <text variable="URL"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="container-journal">
+    <group delimiter=". ">
+      <text variable="container-title" font-style="italic" form="short"/>
+      <group delimiter=" ">
+        <text variable="volume" font-weight="bold"/>
+        <text variable="issue" prefix="(" suffix=")"/>
+      </group>
+    </group>
+  </macro>
+
+  <macro name="publisher-place">
+    <group delimiter=". ">
+      <text variable="publisher-place"/>
+      <text variable="publisher"/>
+    </group>
+  </macro>
+
+  <macro name="edition">
+    <choose>
+      <if variable="edition">
+        <text variable="edition" prefix=" (" suffix=" ed.)"/>
+      </if>
+    </choose>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page" prefix=", "/>
+  </macro>
+
+  <!-- ===================== CITATION (in-text) ===================== -->
+
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" collapse="year">
+    <sort>
+      <key macro="author-short"/>
+      <key variable="issued"/>
+    </sort>
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <group delimiter=", ">
+        <text macro="author-short"/>
+        <date variable="issued" form="text" date-parts="year"/>
+      </group>
+    </layout>
+  </citation>
+
+  <!-- ===================== BIBLIOGRAPHY ===================== -->
+
+  <bibliography hanging-indent="true" entry-spacing="1" line-spacing="1.5">
+    <sort>
+      <key macro="author-bib"/>
+      <key variable="issued"/>
+    </sort>
+    <layout>
+      <text macro="author-bib" suffix=" "/>
+      <text macro="year-date" suffix=". "/>
+
+      <choose>
+
+        <!-- JOURNAL ARTICLE -->
+        <if type="article-journal">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <text macro="container-journal"/>
+          </group>
+          <text macro="pages"/>
+          <text macro="access-date"/>
+          <text macro="url-block"/>
+        </if>
+
+        <!-- BOOK -->
+        <else-if type="book">
+          <group delimiter=". ">
+            <group>
+              <text variable="title" quotes="true"/>
+              <text macro="edition"/>
+            </group>
+            <text macro="publisher-place"/>
+          </group>
+          <text macro="access-date"/>
+        </else-if>
+
+        <!-- CHAPTER OF BOOK -->
+        <else-if type="chapter">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <group delimiter=" ">
+              <text term="in" text-case="capitalize-first" suffix=":"/>
+              <text variable="container-title" quotes="true"/>
+            </group>
+            <text macro="editor-only" prefix="(" suffix=")"/>
+            <group>
+              <text macro="pages"/>
+            </group>
+            <text macro="publisher-place"/>
+          </group>
+        </else-if>
+
+        <!-- THESIS / DISSERTATION -->
+        <else-if type="thesis">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <text variable="genre"/>
+            <text variable="publisher"/>
+          </group>
+          <text macro="access-date"/>
+        </else-if>
+
+        <!-- REPORT -->
+        <else-if type="report">
+          <group delimiter=". ">
+            <text variable="title" suffix=" [Report]"/>
+            <text variable="number"/>
+            <text variable="publisher"/>
+          </group>
+          <text macro="access-date"/>
+          <text macro="url-block"/>
+        </else-if>
+
+        <!-- WEBPAGE -->
+        <else-if type="webpage post post-weblog">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <text variable="container-title"/>
+          </group>
+          <text macro="url-block"/>
+          <text macro="access-date"/>
+        </else-if>
+
+        <!-- CONFERENCE PAPER -->
+        <else-if type="paper-conference speech">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <group delimiter=" ">
+              <text term="presented at" text-case="capitalize-first"/>
+              <text variable="event"/>
+            </group>
+            <text variable="event-place"/>
+          </group>
+          <text macro="pages"/>
+        </else-if>
+
+        <!-- PATENT -->
+        <else-if type="patent">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <group delimiter=" ">
+              <text variable="number" prefix="Patent "/>
+            </group>
+          </group>
+          <text macro="url-block"/>
+          <text macro="access-date"/>
+        </else-if>
+
+        <!-- PERSONAL COMMUNICATION -->
+        <else-if type="personal_communication">
+          <text term="personal communication" text-case="capitalize-first"/>
+          <date variable="issued" prefix=". " form="text">
+            <date-part name="day" suffix=" "/>
+            <date-part name="month" form="long" suffix=" "/>
+            <date-part name="year"/>
+          </date>
+        </else-if>
+
+        <!-- MAGAZINE ARTICLE -->
+        <else-if type="article-magazine">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <text variable="container-title"/>
+          </group>
+          <text macro="pages"/>
+          <text macro="url-block"/>
+          <text macro="access-date"/>
+        </else-if>
+
+        <!-- NEWSPAPER ARTICLE -->
+        <else-if type="article-newspaper">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <text variable="container-title"/>
+            <text variable="publisher"/>
+          </group>
+          <date variable="issued" prefix=". " form="text">
+            <date-part name="day" suffix=" "/>
+            <date-part name="month" form="long" suffix=" "/>
+            <date-part name="year"/>
+          </date>
+          <text macro="pages"/>
+        </else-if>
+
+        <!-- MAP -->
+        <else-if type="map">
+          <group delimiter=". ">
+            <text variable="title"/>
+            <text variable="publisher"/>
+          </group>
+          <text macro="url-block"/>
+          <text macro="access-date"/>
+        </else-if>
+
+        <!-- ENCYCLOPEDIA / DICTIONARY -->
+        <else-if type="entry-encyclopedia entry-dictionary">
+          <group delimiter=". ">
+            <group>
+              <text variable="title" quotes="true"/>
+              <text macro="edition"/>
+            </group>
+            <text macro="publisher-place"/>
+          </group>
+        </else-if>
+
+        <!-- DATASET / SOFTWARE / DOCUMENT (catch-all incl. unpublished, software, broadcast, CD-ROM) -->
+        <else>
+          <group delimiter=". ">
+            <text variable="title"/>
+            <text variable="genre"/>
+            <text variable="publisher"/>
+          </group>
+          <text macro="access-date"/>
+          <text macro="url-block"/>
+        </else>
+
+      </choose>
+
+      <choose>
+        <if variable="DOI">
+          <text variable="DOI" prefix=". https://doi.org/"/>
+        </if>
+      </choose>
+      <choose>
+        <if variable="ISBN">
+          <text variable="ISBN" prefix=". ISBN: "/>
+        </if>
+      </choose>
+
+    </layout>
+  </bibliography>
+
+</style>
