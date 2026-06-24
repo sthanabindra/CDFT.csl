@@ -21,7 +21,10 @@
         <multiple>Eds.</multiple>
       </term>
       <term name="and">and</term>
-      <term name="et-al">et al.</term>
+      <term name="et-al">
+        <single><text font-style="italic">et al.</text></single>
+        <multiple><text font-style="italic">et al.</text></multiple>
+      </term>
       <term name="accessed">Accessed</term>
       <term name="retrieved">Retrieved from</term>
       <term name="page" form="short">
@@ -36,7 +39,6 @@
   <macro name="author-short">
     <names variable="author">
       <name form="short" delimiter=", " and="text" delimiter-precedes-last="never" initialize-with=". "/>
-      <et-al font-style="italic"/>
       <substitute>
         <names variable="editor"/>
         <text variable="title" form="short"/>
