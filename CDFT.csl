@@ -87,8 +87,8 @@
         <group prefix=" [" suffix="]" delimiter=" ">
           <text term="accessed" text-case="capitalize-first"/>
           <date variable="accessed" form="text">
-            <date-part name="day" suffix=" "/>
-            <date-part name="month" form="long" suffix=" "/>
+            <date-part name="day"/>
+            <date-part name="month" form="long"/>
             <date-part name="year"/>
           </date>
         </group>
@@ -263,8 +263,8 @@
         <else-if type="personal_communication">
           <text term="personal communication" text-case="capitalize-first"/>
           <date variable="issued" prefix=". " form="text">
-            <date-part name="day" suffix=" "/>
-            <date-part name="month" form="long" suffix=" "/>
+            <date-part name="day"/>
+            <date-part name="month" form="long"/>
             <date-part name="year"/>
           </date>
         </else-if>
@@ -288,8 +288,8 @@
             <text variable="publisher"/>
           </group>
           <date variable="issued" prefix=". " form="text">
-            <date-part name="day" suffix=" "/>
-            <date-part name="month" form="long" suffix=" "/>
+            <date-part name="day"/>
+            <date-part name="month" form="long"/>
             <date-part name="year"/>
           </date>
           <text macro="pages"/>
