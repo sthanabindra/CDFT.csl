@@ -1615,7 +1615,7 @@
   </macro>
   <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year" givenname-disambiguation-rule="primary-name">
     <sort>
-      <key macro="author-intext”/>
+      <key macro="author-intext"/>
       <key macro="date-sort-group"/>
       <key macro="date-sort-date" sort="ascending"/>
       <key variable="status"/>
