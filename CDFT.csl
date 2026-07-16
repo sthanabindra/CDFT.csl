@@ -1615,9 +1615,9 @@
   </macro>
   <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year" givenname-disambiguation-rule="primary-name">
     <sort>
-      <key macro="author-intext"/>
       <key macro="date-sort-group"/>
       <key macro="date-sort-date" sort="ascending"/>
+      <key macro="author-intext"/>
       <key variable="status"/>
     </sort>
     <layout prefix="(" suffix=")" delimiter="; ">
@@ -1628,6 +1628,14 @@
       </group>
     </layout>
   </citation>
+<intext et-al-min="3" et-al-use-first="1">
+  <layout>
+    <names variable="author">
+      <name and="text" delimiter=", " initialize-with=". "/>
+      <et-al font-style="italic"/>
+    </names>
+  </layout>
+</intext>
   <bibliography hanging-indent="true" et-al-min="21" et-al-use-first="19" et-al-use-last="true" entry-spacing="0" line-spacing="2">
     <sort>
       <key macro="author-bib"/>
